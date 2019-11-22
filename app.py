@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    target = os.environ.get('TARGET', 'Angular Cebu!')
+    target = os.environ.get('TARGET', 'Angular Cebu')
     return 'Hello {}!\n'.format(target)
 
 if __name__ == "__main__":
