@@ -12,6 +12,7 @@ steps:
       [
         "run",
         "deploy",
+        "demo-cloudbuild",
         "--image",
         "gcr.io/${PROJECT_ID}/demo-cloudbuild:$SHORT_SHA",
         "--region",
