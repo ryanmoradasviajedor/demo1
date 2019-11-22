@@ -17,6 +17,9 @@ steps:
         "gcr.io/${PROJECT_ID}/demo-cloudbuild:$SHORT_SHA",
         "--region",
         "us-central1",
+        "--platform",
+        "managed",
+        "--quiet",
       ]
 images:
   - gcr.io/${PROJECT_ID}/demo-cloudbuild:$SHORT_SHA
