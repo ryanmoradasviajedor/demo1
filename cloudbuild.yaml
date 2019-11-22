@@ -1,4 +1,11 @@
 steps:
+  # This step runs the unit tests on the app
+  - name: "python:3.7-slim"
+    id: Test
+    entrypoint: /bin/sh
+    args:
+      - -c
+      - "pip install flask && python test_app.py -v"
   # build the container image
   - name: "gcr.io/cloud-builders/docker"
     args:
@@ -6,17 +13,3 @@ steps:
     # push the container image to Container Registry
   - name: "gcr.io/cloud-builders/docker"
     args: ["push", "gcr.io/${PROJECT_ID}/demo-cloudbuild:$SHORT_SHA"]
-    # Deploy container image to Cloud Run
-  - name: "gcr.io/cloud-builders/gcloud"
-    args:
-      [
-        "run",
-        "deploy",
-        "demo-cloudbuild",
-        "--image",
-        "gcr.io/${PROJECT_ID}/demo-cloudbuild:$SHORT_SHA",
-        "--region",
-        "us-central1",
-      ]
-images:
-  - gcr.io/${PROJECT_ID}/demo-cloudbuild:$SHORT_SHA
