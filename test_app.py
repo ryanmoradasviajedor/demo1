@@ -18,7 +18,7 @@ class TestHelloApp(unittest.TestCase):
 
   def test_hello(self):
     s = 'Hello World v1!'
-    self.assertEqual(s.split(), ['Hello', 'World v1!'])
+    self.assertEqual(s.split(), ['Hello', 'World', 'v1!'])
 
 if __name__ == '__main__':
   unittest.main()
